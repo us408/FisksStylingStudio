@@ -11,18 +11,8 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted    
-    defaults:
-       run:
-         working-directory: ./server/
-    strategy:
-       matrix:
-       node-version: [14.x]
+    runs-on: windows-latest
 
-with:
-    node-version: ${{ matrix.node-version }}
-    cache: 'npm'
-    cache-dependency-path: './server/package-lock.json'
     steps:
       - uses: actions/checkout@v4
 
@@ -64,4 +54,4 @@ with:
           app-name: 'FisksStylinStudio'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7E40676AB7564FE3A59DF7DBFCA7EEC8 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DEB6EEA79DCA491A98DD740ECB6679AD }}
